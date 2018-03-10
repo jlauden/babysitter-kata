@@ -8,13 +8,10 @@ The babysitter:
  - gets paid for full hours only (no fractions)
 */
 
-const START_TIME = '6:15 pm';
-const END_TIME = '3:35 am';
-const BED_TIME = '8:00 pm'
-
-
-
-
+// using default values in military time for now
+const START_TIME = '18:00';
+const END_TIME = '3:35';
+const BED_TIME = '20:00';
 
 }
 
@@ -28,7 +25,7 @@ function getMinuteFromTime(time){
   return time.substr(time.indexOf(':') + 1, 2);
 }
 
-function getAmPmFromTime(time){
-  // returns string of length 2 containing 'am' or 'pm'
-  return time.substr(time.lastIndexOf('m') - 1, 2)
-}
+// function getAmPmFromTime(time){
+//   // returns string of length 2 containing 'am' or 'pm'
+//   return time.substr(time.lastIndexOf('m') - 1, 2)
+// }
