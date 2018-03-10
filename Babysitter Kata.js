@@ -13,8 +13,6 @@ const START_TIME = '18:00';
 const END_TIME = '3:35';
 const BED_TIME = '20:00';
 
-}
-
 function getHourFromTime(time){
   // returns string of length 1 or 2 with hour
   return time.slice(0, time.indexOf(':'));
