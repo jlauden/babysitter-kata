@@ -13,6 +13,8 @@ const START_TIME = '18:00';
 const END_TIME = '3:35';
 const BED_TIME = '20:00';
 
+
+
 function getHourFromTime(time){
   // returns string of length 1 or 2 with hour
   return time.slice(0, time.indexOf(':'));
@@ -22,6 +24,22 @@ function getMinuteFromTime(time){
   // returns string of length 2 with minute value
   return time.substr(time.indexOf(':') + 1, 2);
 }
+
+function roundToNearestHour(time){
+  // returns string in hh:mm format rounded to nearest hour
+
+}
+
+function incrementHour(hour){
+  // returns string in military format of the hour after input hour
+  if (hour === '23'){
+    return '0';
+  }
+  else{
+    return String(parseInt(hour)+1);
+  }
+}
+
 
 // function getAmPmFromTime(time){
 //   // returns string of length 2 containing 'am' or 'pm'
