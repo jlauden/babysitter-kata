@@ -9,6 +9,7 @@ The babysitter:
 */
 
 // using default values in military time for now
+// start time and bed time should be on the hour
 const START_TIME = '18:00';
 const END_TIME = '3:35';
 const BED_TIME = '20:00';
@@ -35,16 +36,28 @@ function incrementHour(hour){
   }
 }
 
-function decrementHour(hour){
-  // returns string in military format of the hour before input hour
-  if (hour === '0'){
-    return '23';
-  }
-  else{
-    return String(parseInt(hour)-1);
-  }
-}
+// function decrementHour(hour){
+//   // returns string in military format of the hour before input hour
+//   if (hour === '0'){
+//     return '23';
+//   }
+//   else{
+//     return String(parseInt(hour)-1);
+//   }
+// }
 
+function roundTime(time){
+  // returns string in military format of time rounded to nearest hour
+  let minute = getMinuteFromTime(time);
+  let hour = getHourFromTime(time);
+  // round up if past :30, otherwise no change to hour
+  if (minute >= 30){
+    hour = incrementHour(hour);
+  }
+  minute = '00';
+
+  return hour + ':' + minute;
+}
 
 // function getAmPmFromTime(time){
 //   // returns string of length 2 containing 'am' or 'pm'
