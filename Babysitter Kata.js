@@ -25,11 +25,6 @@ function getMinuteFromTime(time){
   return time.substr(time.indexOf(':') + 1, 2);
 }
 
-function roundToNearestHour(time){
-  // returns string in hh:mm format rounded to nearest hour
-
-}
-
 function incrementHour(hour){
   // returns string in military format of the hour after input hour
   if (hour === '23'){
@@ -37,6 +32,16 @@ function incrementHour(hour){
   }
   else{
     return String(parseInt(hour)+1);
+  }
+}
+
+function decrementHour(hour){
+  // returns string in military format of the hour before input hour
+  if (hour === '0'){
+    return '23';
+  }
+  else{
+    return String(parseInt(hour)-1);
   }
 }
 
