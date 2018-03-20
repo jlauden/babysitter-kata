@@ -6,7 +6,7 @@ This is my first README of any kind, and I have not yet read a single thing abou
 From https://github.com/PillarTechnology/kata-babysitter
 
 -- Method ------------------
-For now, as this is my first attempt, I will not attempt to code following TDD principles.  Nor will this be an object-oriented approach.  I will attempt to add deterministic functions where possible.  
+For now, as this is my first attempt, I will not attempt to code following TDD principles.  Nor will this be an object-oriented approach.  I will attempt to add deterministic functions (functional programming?) where possible.  
 
 -- Problem Statement -------
 From https://github.com/PillarTechnology/kata-babysitter

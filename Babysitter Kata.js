@@ -1,3 +1,5 @@
+// BABYSITTER KATA
+
 /*
 The babysitter:
  - starts no earlier than 5:00 pm
@@ -8,13 +10,47 @@ The babysitter:
  - gets paid for full hours only (no fractions)
 */
 
+// Times
 // using default values in military time for now
 // start time and bed time should be on the hour
 const START_TIME = '18:00';
 const END_TIME = '3:35';
 const BED_TIME = '20:00';
 
+// round end time to nearest hour
+const ROUNDED_END_TIME = roundTime(END_TIME);
 
+// create hour variables from time inputs
+const ROUNDED_END_TIME_HOUR = getHourFromTime(ROUNDED_END_TIME);
+const BED_TIME_HOUR = getHourFromTime(BED_TIME);
+const START_TIME_HOUR = getHourFromTime(START_TIME);
+
+// Pay Rates
+const HOURLY_RATE_BEFORE_BEDTIME = 12;
+const HOURLY_RATE_FROM_BEDTIME_TO_MIDNIGHT = 8;
+const HOURLY_RATE_AFTER_MIDNIGHT = 16;
+var total_pay = 0;
+
+// Loop through each hour worked calculating pay
+for (var i = START_TIME_HOUR;
+i != ROUNDED_END_TIME_HOUR;
+i = incrementHour(i)){
+
+  // Case 1: before bedtime, and before midnight
+  if (i < String(parseInt(BED_TIME_HOUR) ) && i >= parseInt(START_TIME_HOUR)){
+    total_pay += HOURLY_RATE_BEFORE_BEDTIME;
+
+  // Case 2: after bedtime, before midnight
+  } else if (i >= parseInt(BED_TIME_HOUR)) {
+    total_pay += HOURLY_RATE_FROM_BEDTIME_TO_MIDNIGHT;
+
+  // Case 3: after midnight
+  } else {
+    total_pay += HOURLY_RATE_AFTER_MIDNIGHT;
+  }
+  console.log('current hour ' + i);
+  console.log('pay $' + total_pay);
+}
 
 function getHourFromTime(time){
   // returns string of length 1 or 2 with hour
