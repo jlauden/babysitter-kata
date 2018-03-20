@@ -13,8 +13,8 @@ The babysitter:
 // Times
 // using default values in military time for now
 // start time and bed time should be on the hour
-const START_TIME = '18:00';
-const END_TIME = '3:35';
+const START_TIME = '17:00';
+const END_TIME = '4:00';
 const BED_TIME = '20:00';
 
 // round end time to nearest hour
@@ -37,11 +37,11 @@ i != ROUNDED_END_TIME_HOUR;
 i = incrementHour(i)){
 
   // Case 1: before bedtime, and before midnight
-  if (i < String(parseInt(BED_TIME_HOUR) ) && i >= parseInt(START_TIME_HOUR)){
+  if (i < BED_TIME_HOUR && i >= START_TIME_HOUR){
     total_pay += HOURLY_RATE_BEFORE_BEDTIME;
 
   // Case 2: after bedtime, before midnight
-  } else if (i >= parseInt(BED_TIME_HOUR)) {
+  } else if (i >= BED_TIME_HOUR) {
     total_pay += HOURLY_RATE_FROM_BEDTIME_TO_MIDNIGHT;
 
   // Case 3: after midnight
@@ -53,22 +53,21 @@ i = incrementHour(i)){
 }
 
 function getHourFromTime(time){
-  // returns string of length 1 or 2 with hour
-  return time.slice(0, time.indexOf(':'));
+  // returns hour
+  return parseInt(time.slice(0, time.indexOf(':')));
 }
 
 function getMinuteFromTime(time){
-  // returns string of length 2 with minute value
-  return time.substr(time.indexOf(':') + 1, 2);
+  // returns minute value from hh:mm string input
+  return parseInt(time.substr(time.indexOf(':') + 1, 2));
 }
 
 function incrementHour(hour){
-  // returns string in military format of the hour after input hour
-  if (hour === '23'){
-    return '0';
-  }
-  else{
-    return String(parseInt(hour)+1);
+  // returns military format of the hour after input hour
+  if (hour === 23){
+    return 0;
+  } else {
+    return hour + 1;
   }
 }
 
